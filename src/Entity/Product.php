@@ -29,6 +29,12 @@ class Product
     #[ORM\Column(length: 10, unique: true)]
     private string $code;
 
+    #[ORM\Column(type: "integer", options: ["unsigned" => true])]
+    private int $stock;
+
+    #[ORM\Column(type: "decimal", precision: 15, scale: 2)]
+    private string $price;
+
     #[ORM\Column(nullable: true)]
     private ?DateTimeImmutable $createdAt = null;
 
@@ -75,6 +81,30 @@ class Product
     public function setCode(string $code): static
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): static
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getPrice(): string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): static
+    {
+        $this->price = $price;
 
         return $this;
     }

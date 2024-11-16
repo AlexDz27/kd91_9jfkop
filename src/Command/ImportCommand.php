@@ -19,9 +19,11 @@ class ImportCommand extends Command {
 
   protected function execute(InputInterface $input, OutputInterface $output): int {
     $product = new Product();
-    $product->setName('zxc2');
-    $product->setDescription('WOW DESCR 22');
-    $product->setCode(11); // TODO: try int
+    $product->setName('zxc3');
+    $product->setDescription('WOW DESCR 33');
+    $product->setCode('123');
+    $product->setStock(13);
+    $product->setPrice('14.05');
 
     $this->entityManager->persist($product);
     $this->entityManager->flush();
